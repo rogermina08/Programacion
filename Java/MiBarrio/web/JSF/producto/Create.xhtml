@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_productoPK_id}" for="productoPK_id" />
+                    <h:inputText id="productoPK_id" value="#{productoController.selected.productoPK.id}" title="#{bundle.CreateProductoTitle_productoPK_id}" required="true" requiredMessage="#{bundle.CreateProductoRequiredMessage_productoPK_id}"/>
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_productoPK_cantidad}" for="productoPK_cantidad" />
+                    <h:inputText id="productoPK_cantidad" value="#{productoController.selected.productoPK.cantidad}" title="#{bundle.CreateProductoTitle_productoPK_cantidad}" required="true" requiredMessage="#{bundle.CreateProductoRequiredMessage_productoPK_cantidad}"/>
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_productoPK_contenido}" for="productoPK_contenido" />
+                    <h:inputText id="productoPK_contenido" value="#{productoController.selected.productoPK.contenido}" title="#{bundle.CreateProductoTitle_productoPK_contenido}" required="true" requiredMessage="#{bundle.CreateProductoRequiredMessage_productoPK_contenido}"/>
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_productoPK_costo}" for="productoPK_costo" />
+                    <h:inputText id="productoPK_costo" value="#{productoController.selected.productoPK.costo}" title="#{bundle.CreateProductoTitle_productoPK_costo}" required="true" requiredMessage="#{bundle.CreateProductoRequiredMessage_productoPK_costo}"/>
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_categoria}" for="categoria" />
+                    <h:inputText id="categoria" value="#{productoController.selected.categoria}" title="#{bundle.CreateProductoTitle_categoria}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{productoController.selected.marca}" title="#{bundle.CreateProductoTitle_marca}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_proveedor}" for="proveedor" />
+                    <h:inputText id="proveedor" value="#{productoController.selected.proveedor}" title="#{bundle.CreateProductoTitle_proveedor}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_factura}" for="factura" />
+                    <h:inputText id="factura" value="#{productoController.selected.factura}" title="#{bundle.CreateProductoTitle_factura}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{productoController.selected.fecha}" title="#{bundle.CreateProductoTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productoController.create}" value="#{bundle.CreateProductoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productoController.prepareList}" value="#{bundle.CreateProductoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
