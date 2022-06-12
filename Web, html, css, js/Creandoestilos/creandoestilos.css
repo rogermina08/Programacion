@@ -1,0 +1,18 @@
+.thumb {
+ width: 200px;
+ transition: 400ms all ease;
+}
+
+.grande {
+    width: 400px;
+}
+
+.titulo {
+    border: 1 px solid navy;
+    background: #ccc;
+    padding: 10px;
+}
+
+.tituloGrande {
+    font-size: 60px;
+}
